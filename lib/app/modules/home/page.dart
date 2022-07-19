@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hortifrutti_app/app/widgets/store_status.dart';
 import 'package:transparent_image/transparent_image.dart';
 
+import '../../routes/routes.dart';
 import 'controller.dart';
 
 class HomePage extends GetView<HomeController> {
@@ -30,23 +32,15 @@ class HomePage extends GetView<HomeController> {
                     ),
                   ),
                 ),
-                trailing: Chip(
-                  avatar: const Icon(
-                    Icons.check,
-                    color: Colors.white,
-                    size: 18,
-                  ),
-                  label: Text(
-                    store.isOnline ? 'Aberto' : 'Fechado',
-                    style:
-                        Get.textTheme.bodySmall!.copyWith(color: Colors.white),
-                  ),
-                  backgroundColor:
-                      store.isOnline ? Colors.green : Colors.black45,
-                ),
+                trailing: StoreStatus(isOnline: store.isOnline),
                 contentPadding:
                     const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-                onTap: () {},
+                onTap: () => Get.toNamed(
+                  Routes.store.replaceFirst(
+                    ':id',
+                    store.id.toString(),
+                  ),
+                ),
               )
           ],
         ),

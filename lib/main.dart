@@ -14,22 +14,24 @@ void main() {
   Get.put<Api>(Api());
   Intl.defaultLocale = 'pt_BR';
 
-  runApp(GetMaterialApp(
-    debugShowCheckedModeBanner: false,
-    initialRoute: Routes.dashboard,
-    theme: Apptheme.themeData,
-    defaultTransition: Transition.fade,
-    initialBinding: DashboardBinding(),
-    getPages: AppPages.pages,
-    home: const DashboardPage(),
-    localizationsDelegates: const [
-      GlobalMaterialLocalizations.delegate,
-      GlobalWidgetsLocalizations.delegate,
-      GlobalCupertinoLocalizations.delegate,
-    ],
-    locale: const Locale('pt', 'BR'),
-    supportedLocales: const [
-      Locale('pt', 'BR'),
-    ],
-  ));
+  runApp(
+    GetMaterialApp(
+      debugShowCheckedModeBanner: false,
+      initialRoute: Routes.dashboard,
+      theme: Apptheme.themeData,
+      defaultTransition: Transition.fade,
+      initialBinding: DashboardBinding(),
+      getPages: AppPages.pages,
+      home: const DashboardPage(),
+      localizationsDelegates: const [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      locale: const Locale('pt', 'BR'),
+      supportedLocales: const [
+        Locale('pt', 'BR'),
+      ],
+    ),
+  );
 }
