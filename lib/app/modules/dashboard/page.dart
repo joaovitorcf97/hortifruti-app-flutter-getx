@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hortifrutti_app/app/modules/home/page.dart';
 
 import 'controller.dart';
 
@@ -9,12 +10,11 @@ class DashboardPage extends GetView<DashboardController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('DashboardPage')),
       body: Obx(
         () => IndexedStack(
           index: controller.currentPageIndex.value,
           children: const [
-            Text('Incio'),
+            HomePage(),
             Text('Pefil'),
             Text('Pedidos'),
           ],

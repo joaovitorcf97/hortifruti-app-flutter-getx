@@ -2,15 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
 import 'package:hortifrutti_app/app/core/theme/app_theme.dart';
+import 'package:hortifrutti_app/app/data/providers/api.dart';
 import 'package:hortifrutti_app/app/modules/dashboard/binding.dart';
 import 'package:hortifrutti_app/app/modules/dashboard/page.dart';
-import 'package:hortifrutti_app/app/modules/home/binding.dart';
 import 'package:intl/intl.dart';
 
 import 'app/routes/pages.dart';
 import 'app/routes/routes.dart';
 
 void main() {
+  Get.put<Api>(Api());
   Intl.defaultLocale = 'pt_BR';
 
   runApp(GetMaterialApp(
