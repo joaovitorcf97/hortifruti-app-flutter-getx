@@ -1,6 +1,8 @@
 import 'package:get/get.dart';
 import 'package:hortifrutti_app/app/modules/dashboard/binding.dart';
 import 'package:hortifrutti_app/app/modules/dashboard/page.dart';
+import 'package:hortifrutti_app/app/modules/product/binding.dart';
+import 'package:hortifrutti_app/app/modules/product/page.dart';
 import 'package:hortifrutti_app/app/modules/store/binding.dart';
 import 'package:hortifrutti_app/app/modules/store/page.dart';
 
@@ -17,6 +19,11 @@ abstract class AppPages {
       name: Routes.store,
       page: () => const StorePage(),
       binding: StoreBinding(),
+    ),
+    GetPage(
+      name: Routes.product,
+      page: () => ProductPage(),
+      binding: ProductBinding(),
     ),
   ];
 }

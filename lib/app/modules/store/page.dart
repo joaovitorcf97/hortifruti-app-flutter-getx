@@ -4,6 +4,7 @@ import 'package:hortifrutti_app/app/widgets/store_status.dart';
 import 'package:intl/intl.dart';
 import 'package:transparent_image/transparent_image.dart';
 
+import '../../routes/routes.dart';
 import 'controller.dart';
 
 class StorePage extends GetView<StoreController> {
@@ -80,7 +81,9 @@ class StorePage extends GetView<StoreController> {
                         ListTile(
                           title: Text(product.name),
                           subtitle: Text(
-                            NumberFormat.simpleCurrency().format(product.price),
+                            NumberFormat.simpleCurrency()
+                                    .format(product.price) +
+                                (product.isKG ? ' /KG' : ''),
                           ),
                           leading: product.image.isNotEmpty
                               ? SizedBox(
@@ -110,7 +113,13 @@ class StorePage extends GetView<StoreController> {
                                     ),
                                   ),
                                 ),
-                          onTap: () {},
+                          onTap: () => Get.toNamed(
+                            Routes.product,
+                            arguments: {
+                              'product': product,
+                              'store': state,
+                            },
+                          ),
                         ),
                     ],
                   );
