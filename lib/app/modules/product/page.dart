@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hortifrutti_app/app/modules/product/widgets/quantity_and_weight_widget.dart';
 import 'package:intl/intl.dart';
 import 'package:transparent_image/transparent_image.dart';
 
@@ -16,7 +17,6 @@ class ProductPage extends GetView<ProductController> {
       body: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(horizontal: 16),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             if (product.image.isNotEmpty)
               Align(
@@ -49,6 +49,7 @@ class ProductPage extends GetView<ProductController> {
               ),
               maxLength: 50,
             ),
+            QuantityAndWeighWidget(isKG: product.isKG),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 16),
               child: ElevatedButton(
