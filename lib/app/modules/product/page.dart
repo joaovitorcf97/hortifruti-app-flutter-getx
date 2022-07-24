@@ -38,7 +38,7 @@ class ProductPage extends GetView<ProductController> {
               ),
             Text(
               NumberFormat.simpleCurrency().format(product.price) +
-                  (product.isKG ? ' /KG' : ''),
+                  (product.isKG ? ' /Kg' : ''),
               style: Get.textTheme.titleLarge!
                   .copyWith(fontWeight: FontWeight.bold),
             ),
@@ -49,7 +49,27 @@ class ProductPage extends GetView<ProductController> {
               ),
               maxLength: 50,
             ),
-            QuantityAndWeighWidget(isKG: product.isKG),
+            Container(
+              padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+              decoration: BoxDecoration(
+                color: Colors.grey[200],
+                border: Border.all(color: Colors.grey.shade400, width: 2),
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: Column(
+                children: [
+                  Text(
+                    'Altere ${product.isKG ? 'o peso' : 'a quantidade'}',
+                    style: const TextStyle(
+                      color: Colors.black54,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                  const SizedBox(height: 4),
+                  QuantityAndWeighWidget(isKG: product.isKG),
+                ],
+              ),
+            ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 16),
               child: ElevatedButton(

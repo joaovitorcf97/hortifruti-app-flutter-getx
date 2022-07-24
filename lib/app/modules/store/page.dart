@@ -83,7 +83,7 @@ class StorePage extends GetView<StoreController> {
                           subtitle: Text(
                             NumberFormat.simpleCurrency()
                                     .format(product.price) +
-                                (product.isKG ? ' /KG' : ''),
+                                (product.isKG ? ' /Kg' : ''),
                           ),
                           leading: product.image.isNotEmpty
                               ? SizedBox(
